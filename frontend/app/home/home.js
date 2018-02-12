@@ -11,8 +11,16 @@ angular.module('myApp.home', ['ngRoute'])
 
 .controller('HomeCtrl', ['$scope', '$http', function($scope, $http) {
   $scope.message = "This is angular app.";
-  $http.get("http://0.0.0.0:3000/home")
-    .success(function(data) {
-      $scope.message = data.message;
-    });
+  $scope.image = {
+    src: "assets/img/angularjs+rails.jpg"
+  };
+  $http({
+      method: 'GET',
+      url: 'http://0.0.0.0:3000/home'
+  }).then(function (success){
+    $scope.message = success.data.message;
+
+  },function (error){
+
+  });
 }]);

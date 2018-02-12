@@ -16,10 +16,15 @@ angular.module('myApp.products', ['ngRoute'])
 
 .controller('ProductsCtrl', ['$scope','$http', function($scope, $http) {
   $scope.message = "This is angular app.";
-  $http.get("http://0.0.0.0:3000/products")
-    .success(function(data) {
-      $scope.products = data;
-    });
+  $http({
+      method: 'GET',
+      url: 'http://0.0.0.0:3000/products'
+  }).then(function (success){
+    $scope.products = success.data;
+
+  },function (error){
+
+  });
 }])
 
 .controller('ProductsNewCtrl', ['$scope','$http', '$location', function($scope, $http, $location) {
@@ -29,13 +34,12 @@ angular.module('myApp.products', ['ngRoute'])
     var product_params = JSON.stringify({name: $scope.name, price: $scope.price});
 
     $http.post("http://0.0.0.0:3000/products", product_params)
-      .success(function(data, status, headers, config) {
-        console.log(data);
+      .then(function(success) {
+        console.log(success.data);
         alert("New product was successfully created!");
         $location.path("/products");
-      })
-      .error(function(data, status, headers, config) {
-        console.log("error");
+      }, function (error) {
+        console.log(error);
       });
   };
 }]);

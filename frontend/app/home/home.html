@@ -1,1 +1,36 @@
-<p>{{ message }}</p>
+<div ng-cloak="" class="carddemoBasicUsage">
+  <md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs="" flex-gt-xs="50" layout="column">
+      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch="">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{ message }}</span>
+            <span class="md-subhead">This is angular app with rails api.</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content layout="row" layout-align="space-between">
+          <div class="md-media-xl card-media">
+            <img ng-src="{{ image.src }}" alt="angularjs+rails" style="width: 240px">
+          </div>
+
+          <md-card-actions layout="column">
+            <md-button class="md-icon-button" aria-label="Favorite">
+              <ng-md-icon icon="favorite"></ng-md-icon>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="Settings">
+              <ng-md-icon icon="menu"></ng-md-icon>
+              <!-- <md-icon md-svg-icon="img/icons/menu.png"></md-icon> -->
+            </md-button>
+            <md-button class="md-icon-button" aria-label="Share">
+              <ng-md-icon icon="share"></ng-md-icon>
+              <!-- <md-icon md-svg-icon="img/icons/share-arrow.png"></md-icon> -->
+            </md-button>
+          </md-card-actions>
+        </md-card-content>
+      </md-card>
+      <div layout="" layout-padding="" layout-align="left end" style="height:200px">
+        <md-checkbox ng-model="showDarkTheme">Use 'Dark' Theme</md-checkbox>
+      </div>
+    </div>
+  </md-content>
+</div>
