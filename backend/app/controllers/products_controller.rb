@@ -24,6 +24,9 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
+    puts "*******************************************"
+    puts product_params
+    puts "**********************************************"
     @product = Product.new(product_params)
 
     respond_to do |format|

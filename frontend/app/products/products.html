@@ -1,0 +1,17 @@
+<h3>Products</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="product in products">
+      <th>{{ product.name }}</th>
+      <th>{{ product.price }}</th>
+    </tr>
+  </tbody>
+</table>
+<a href="#!/products/new">New Product</a>
