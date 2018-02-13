@@ -16,17 +16,34 @@
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body ng-app="myApp">
-  <ul class="menu">
-    <li><a href="#!/home">home</a></li>
-    <li><a href="#!/sports">sports</a></li>
-    <li><a href="#!/products">products</a></li>
-  </ul>
+
+  <div ng-controller="AppCtrl" ng-cloak>
+    <md-content class="md-padding">
+      <md-nav-bar
+        md-no-ink-bar="disableInkBar"
+        md-selected-nav-item="currentNavItem"
+        nav-bar-aria-label="navigation links">
+        <md-nav-item md-nav-click="goto('/home')" name="page1">
+          Home
+        </md-nav-item>
+        <md-nav-item md-nav-click="goto('/sports')" name="page2">
+          Sports
+        </md-nav-item>
+        <md-nav-item md-nav-click="goto('/products')" name="page3">
+          Products
+        </md-nav-item>
+      </md-nav-bar>
+      <div class="ext-content">
+        <div ng-view></div>
+      </div>
+    </md-content>
+  </div>
 
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <div ng-view></div>
+
 
   <div>Angular seed app: v<span app-version></span></div>
 

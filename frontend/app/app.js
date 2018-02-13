@@ -16,4 +16,12 @@ config(['$locationProvider', '$routeProvider', '$mdThemingProvider', function($l
   $routeProvider.otherwise({redirectTo: '/home'});
 
   $mdThemingProvider.theme('dark-purple').backgroundPalette('deep-purple').dark();
+}])
+
+.controller('AppCtrl', ['$scope', '$location', function($scope, $location) {
+   $scope.currentNavItem = 'page1';
+
+  $scope.goto = function(page) {
+    $location.path(page);
+  };
 }]);
