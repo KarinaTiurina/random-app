@@ -1,17 +1,21 @@
-<h3>Products</h3>
+<md-content>
+  <md-toolbar layout="row" class="md-hue-3">
+    <div class="md-toolbar-tools">
+      <span>Products</span>
+    </div>
+  </md-toolbar>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="product in products">
-      <th>{{ product.name }}</th>
-      <th>{{ product.price }}</th>
-    </tr>
-  </tbody>
-</table>
-<a href="#!/products/new">New Product</a>
+  <a href="#!/products/new">New Product</a>
+
+  <md-list flex>
+    <md-subheader class="md-no-sticky">All products</md-subheader>
+    <md-list-item class="md-3-line" ng-repeat="product in products" ng-click="null">
+      <img ng-src="assets/img/product.jpg" class="md-avatar" alt="Product" />
+      <div class="md-list-item-text" layout="column">
+        <h3>{{ product.name }}</h3>
+        <h4>{{ product.price}}$</h4>
+        <p>Good product!</p>
+      </div>
+    </md-list-item>
+  </md-list>
+</md-content>
