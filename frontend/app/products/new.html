@@ -2,14 +2,39 @@
 
 <br />
 
-<form ng-submit="submit()">
-  <label for="product-name">Name</label>
-  <input type="text" ng-model="name" id="product-name" />
-  <br />
+<md-content layout-padding>
+    <form name="projectForm" ng-submit="submit()">
+      <div layout="row">
+        <md-input-container flex="50">
+          <label>Name</label>
+          <input required name="clientName" ng-model="name" id="product-name">
+          <div ng-messages="projectForm.clientName.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+      </div>
 
-  <label for="product-price">Price</label>
-  <input type="text" ng-model="price" id="product-price" />
-  <br />
+      <md-input-container class="md-block">
+        <label>Price (USD)</label>
+        <input required type="number" step="any" name="rate" ng-model="price" min="800"
+               max="4999" id="product-price" />
 
-  <button type="submit">Add product</button>
-</form>
+        <div ng-messages="projectForm.rate.$error" multiple md-auto-hide="false">
+          <div ng-message="required">
+            Price is required
+          </div>
+
+          <div ng-message="min">
+            Min price for product is 800$
+          </div>
+
+          <div ng-message="max">
+            No more than 4999$.
+          </div>
+        </div>
+      </md-input-container>
+      <div>
+        <md-button type="submit" md-no-ink class="md-primary">Add product</md-button>
+      </div>
+    </form>
+  </md-content>

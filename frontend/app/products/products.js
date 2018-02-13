@@ -29,7 +29,12 @@ angular.module('myApp.products', ['ngRoute'])
 
 .controller('ProductsNewCtrl', ['$scope','$http', '$location', function($scope, $http, $location) {
   $scope.name = "";
-  $scope.price = 0;
+  $scope.price = 500;
+  $scope.project = {
+    description: 'This is the description of the product.',
+    rate: 500,
+    special: true
+  };
   $scope.submit = function() {
     var product_params = JSON.stringify({name: $scope.name, price: $scope.price});
 
