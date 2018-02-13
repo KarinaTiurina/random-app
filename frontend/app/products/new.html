@@ -9,29 +9,20 @@
           <label>Name</label>
           <input required name="clientName" ng-model="name" id="product-name">
           <div ng-messages="projectForm.clientName.$error">
-            <div ng-message="required">This is required.</div>
+            <div ng-message="required">Name is required.</div>
           </div>
         </md-input-container>
       </div>
 
       <md-input-container class="md-block">
-        <label>Price (USD)</label>
-        <input required type="number" step="any" name="rate" ng-model="price" min="800"
-               max="4999" id="product-price" />
-
-        <div ng-messages="projectForm.rate.$error" multiple md-auto-hide="false">
-          <div ng-message="required">
-            Price is required
-          </div>
-
-          <div ng-message="min">
-            Min price for product is 800$
-          </div>
-
-          <div ng-message="max">
-            No more than 4999$.
-          </div>
-        </div>
+        <md-slider-container>
+          <span>Price (USD)</span>
+          <md-slider flex min="100" max="5000" ng-model="price" aria-label="red" id="red-slider">
+          </md-slider>
+          <md-input-container>
+            <input flex type="number" ng-model="price" aria-label="red" aria-controls="red-slider" id="product-price">
+          </md-input-container>
+        </md-slider-container>
       </md-input-container>
       <div>
         <md-button type="submit" md-no-ink class="md-raised">Add product</md-button>
