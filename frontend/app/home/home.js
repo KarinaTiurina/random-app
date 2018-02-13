@@ -23,4 +23,11 @@ angular.module('myApp.home', ['ngRoute'])
   },function (error){
 
   });
+  $scope.isOpen = false;
+
+    $scope.demo = {
+      isOpen: false,
+      count: 0,
+      selectedDirection: 'right'
+    };
 }]);

@@ -1,7 +1,7 @@
 <div ng-cloak="" class="carddemoBasicUsage">
   <md-content class="md-padding" layout-xs="column" layout="row">
     <div flex-xs="" flex-gt-xs="50" layout="column">
-      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch="">
+      <md-card md-theme="{{ 'dark-purple' }}" md-theme-watch="">
         <md-card-title>
           <md-card-title-text>
             <span class="md-headline">{{ message }}</span>
@@ -28,9 +28,33 @@
           </md-card-actions>
         </md-card-content>
       </md-card>
-      <div layout="" layout-padding="" layout-align="left end" style="height:200px">
-        <md-checkbox ng-model="showDarkTheme">Use 'Dark' Theme</md-checkbox>
-      </div>
     </div>
   </md-content>
 </div>
+
+<div>
+  <md-fab-toolbar md-open="demo.isOpen" count="demo.count"
+                  md-direction="{{demo.selectedDirection}}">
+    <md-fab-trigger class="align-with-text">
+      <md-button aria-label="menu" class="md-fab md-primary">
+        <md-icon ng-md-icon icon="menu" style="fill:white"></md-icon>
+        <!-- <ng-md-icon icon="menu" style="fill:white"></ng-md-icon> -->
+      </md-button>
+    </md-fab-trigger>
+
+    <md-toolbar>
+      <md-fab-actions class="md-toolbar-tools">
+        <md-button aria-label="comment" class="md-icon-button">
+          <ng-md-icon icon="favorite" style="fill:white"></ng-md-icon>
+        </md-button>
+        <md-button aria-label="label" class="md-icon-button">
+          <ng-md-icon icon="github-box" style="fill:white"></ng-md-icon>
+        </md-button>
+        <md-button aria-label="photo" class="md-icon-button">
+          <ng-md-icon icon="share" style="fill:white"></ng-md-icon>
+        </md-button>
+      </md-fab-actions>
+    </md-toolbar>
+  </md-fab-toolbar>
+</div>
+
